@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/Noir-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/bkgdfrst.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/ui_theme.tres" type="Theme" id=5]
+[ext_resource path="res://src/UserInterface/Falze.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://src/Sound/C418_Sweden.mp3" type="AudioStream" id=7]
+[ext_resource path="res://src/Screens/Github_link.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/RichTextLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 299, 175 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "text bounce"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/RichTextLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 299, 175 ), Vector2( 299, 150 ), Vector2( 299, 175 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 60
+outline_size = 1
+outline_color = Color( 0.0352941, 0.909804, 0.909804, 1 )
+extra_spacing_top = 29
+font_data = ExtResource( 2 )
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.172
+anchor_bottom = 1.2
+margin_right = -0.128052
+theme = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1030.0
+margin_bottom = 595.0
+rect_min_size = Vector2( 1280, 720 )
+
+[node name="Bkgdfrst" type="Sprite" parent="ColorRect"]
+position = Vector2( 640, 360 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 4 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -266.5
+margin_top = -92.0
+margin_right = 55.5
+margin_bottom = 92.0
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 1 )]
+margin_right = 322.0
+margin_bottom = 89.0
+next_scene_path = "res://src/Levels/LevelTemplate.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 3 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 93.0
+margin_right = 322.0
+margin_bottom = 183.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 420.0
+margin_top = 588.0
+margin_right = 895.0
+margin_bottom = 694.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "			Developed by MAYBORG
+		  			©2022
+this game is an intellectual property of mayborg™ and is registered under general public licence. 
+
+this project was created for the seminar project of met bkc institute of technology ,nashik.
+
+Click on The title to Download Latest Version. "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "text bounce"
+anims/RESET = SubResource( 3 )
+"anims/text bounce" = SubResource( 4 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AnimationPlayer"]
+margin_left = 299.0
+margin_top = 175.0
+margin_right = 1004.0
+margin_bottom = 289.992
+hint_tooltip = "The Name is inspired from the Legendary platformer Bounce Tales!....
+Enjoy the game "
+focus_mode = 2
+custom_colors/default_color = Color( 0.0196078, 0.286275, 0.247059, 1 )
+custom_colors/selection_color = Color( 0.54902, 0.780392, 0.0784314, 1 )
+custom_colors/font_color_selected = Color( 0.823529, 0.0470588, 0.392157, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "square tales !"
+scroll_active = false
+selection_enabled = true
+
+[node name="Github_link" type="LinkButton" parent="AnimationPlayer/RichTextLabel"]
+margin_top = 15.0
+margin_right = 332.0
+margin_bottom = 80.0
+shortcut_in_tooltip = false
+action_mode = 0
+script = ExtResource( 8 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+[connection signal="button_down" from="AnimationPlayer/RichTextLabel/Github_link" to="AnimationPlayer/RichTextLabel/Github_link" method="_on_Github_link_button_down"]
