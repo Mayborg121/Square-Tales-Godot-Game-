@@ -39,7 +39,8 @@ Welcome to **Square Tales!**, a 2D platformer game developed as part of my 2nd y
 ## Screenshots
 
 (Screenshots of gameplay, menu screens, and levels)
-[See Presentation]([https://drive.google.com/drive/u/0/folders/1Rkgw2e947TcdmpqloWsCzDCbFqD4YW6Q](https://drive.google.com/file/d/13-Qyw4k_QyEi8YoyYlPtoiYTAlind5cz/view?usp=sharing))
+[See Presentation]([https://drive.google.com/file/d/13-Qyw4k_QyEi8YoyYlPtoiYTAlind5cz/view?usp=drivesdk))
+
 
 
 ## Learning Outcomes
