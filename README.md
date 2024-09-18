@@ -72,7 +72,7 @@ Explore the game, enjoy playing, and feel free to contribute to its development!
 
 You can download and play **Square Tales!** directly on your Windows PC:
 
-- [Download Square Tales! (Windows)](https://github.com/Mayborg121/Square-Tales-Godot-Game/releases/download/v1.0/SquareTales_Windows.zip)
+- [Download Square Tales! (Windows)](https://drive.google.com/file/d/1mlZ9WW6p1nW5-swfKP9d5ik2IZs1w2f5/view?usp=drivesdk)
 
 1. Download the zip file from the link above.
 2. Extract the contents of the zip file.
